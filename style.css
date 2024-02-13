@@ -39,6 +39,9 @@ main h1 {
     text-align: center;
     letter-spacing: 5px;
 }
+h1 span {
+    font-size: 0.5em;
+}
 
 .tempo {
     display: flex;
