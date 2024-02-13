@@ -1,0 +1,196 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font-primary: Merriweather Sans;
+    --font-secundary: Bad Script;
+    --thunder-duration: 10s;
+    --thunder-delay: 10s;
+    --dark: #404040;
+    --light: #f0f0f0;
+
+}
+
+
+
+body {
+    color: #fff;
+    font-family: var(--font-primary);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+    z-index: 10;
+}
+
+main h1 {
+    margin-bottom: 60px;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.tempo {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.container-count {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background-image: linear-gradient(to bottom, #2b2c457d 50%, #34364fc2 50%);
+    margin: 10px;
+    min-width: 100px;
+    border-radius: 5px;
+
+}
+
+
+.container-count p.count {
+    font-size: 3em;
+    color: #FA5F85;
+    text-align: center;
+}
+
+.container-count span.count-text {
+    font-size: 0.8em;
+    color: white;
+    letter-spacing: 2px;
+    font-family: var(--font-secundary);
+}
+
+p.dois-pontos {
+    display: flex;
+    align-items: center;
+    font-size: 8em;
+}
+
+hr.thunder {
+    border: unset;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    animation-name: thunder;
+    animation-duration: var(--thunder-duration);
+    animation-timing-function: linear;
+    animation-delay: var(--thunder-delay);
+    animation-iteration-count: infinite;
+}
+
+hr:not(.thunder) {
+    width: 50px;
+    border-color: transparent;
+    border-right-color: rgba(255, 255, 255, 0.7);
+    border-right-width: 50px;
+    position: absolute;
+    bottom: 100%;
+    transform-origin: 100% 50%;
+    animation-name: rain;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rain {
+    from {
+        transform: rotate(105deg) translateX(0);
+    }
+
+    to {
+        transform: rotate(105deg) translateX(calc(100vh + 20px));
+    }
+}
+
+@keyframes thunder {
+    0% {
+        background-color: transparent;
+    }
+
+    1% {
+        background-color: white;
+    }
+
+    2% {
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    8% {
+        background-color: transparent;
+    }
+
+
+}
+
+footer {
+    padding: 80px;
+    background: url(images/pattern-hills.svg);
+    max-width: 100%;
+    background-size: cover;
+
+}
+
+.socials {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+.socials i {
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    font-size: 2em;
+    transition: 0.3s;
+    border: 1px solid #ffffff4d;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.last-fm:hover {
+    color: #fff;
+    background-color: #E4141E;
+}
+
+.insta:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+.github:hover {
+    color: #22262A;
+    background-color: #fff;
+}
+
+@media only screen and (max-width: 767px) {
+    .tempo p.count {
+        font-size: 1.3em;
+    }
+
+    .tempo p.dates {
+        font-size: 1em;
+    }
+
+    .container-count {
+        padding: 5px;
+        min-width: 50px;
+    }
+
+    p.dois-pontos {
+        font-size: 3em;
+    }
+}
