@@ -37,19 +37,15 @@ setInterval(atualizarTempo, 1000);
 
 atualizarTempo();
 
-function newGradient(horas) {
-    const body = document.querySelector('body')
-    const gradientDia = 'linear-gradient(rgb(239 203 146), rgb(255, 110, 50) 70%)'
-    const gradientTarde = 'linear-gradient(rgb(255, 110, 50), rgb(10 13 27) 70%)'
-    const gradientAnoitecer = 'linear-gradient(to bottom, #030420, #000000 70%)'
-    if (horas >= 5 && horas < 15 ) {
-        body.style.background = gradientDia
-    } else if (horas >= 15 && horas <= 19) {
-        body.style.background = gradientTarde
-    } else {
-        body.style.background = gradientAnoitecer
-    }
+
+const seconds_to_percentage = () => {
+    const current_time = new Date();
+    const start_day_time = new Date(current_time.getFullYear(), current_time.getMonth(), current_time.getDate());
+    return ((Math.floor((current_time - start_day_time) / 1000) / 86400) * 100) + '%';
 }
-const agora = new Date()
-const horas = agora.getHours()
-newGradient(horas)
+
+const delta = 1000
+const bg_el = document.body;
+setInterval(function(){
+      bg_el.style.backgroundPositionY = seconds_to_percentage(); 
+}, delta)
