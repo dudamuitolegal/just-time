@@ -1,4 +1,4 @@
-let rain = false
+let rain = true
 
 
 if (rain == true) {
